@@ -15,8 +15,8 @@ from telegram.ext import (
 from telegram.error import BadRequest
 
 # Ваши API ключи
-TELEGRAM_API_KEY = "7670966753:AAGqLWoNUMeGaWMKqENl5vifCBGfUA09vTY"
-KINOPOISK_API_KEY = "e46a2cf3-0ade-4a97-973c-728bf3f158ae"
+TELEGRAM_API_KEY = ""
+KINOPOISK_API_KEY = ""
 
 # Словарь жанров
 GENRES = {
