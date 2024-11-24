@@ -49,16 +49,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = "Добро пожаловать! Что вы хотите сделать?"
 
-    try:
-        if update.message:
-            await update.message.reply_text(text, reply_markup=reply_markup)
-        elif update.callback_query:
-            await update.callback_query.message.edit_text(text, reply_markup=reply_markup)
-            await update.callback_query.answer()
-    except BadRequest:
-        # Если сообщение уже существует или не может быть отредактировано
-        if update.callback_query:
-            await update.callback_query.answer(text, show_alert=True)
+    # Упрощение обработки: проверяем, откуда пришёл вызов
+    if update.callback_query:
+        query = update.callback_query
+        await query.answer()  # Обязательно подтверждаем callback
+        try:
+            await query.edit_message_text(text, reply_markup=reply_markup)
+        except BadRequest:
+            # Если сообщение нельзя редактировать, отправляем новое
+            await query.message.reply_text(text, reply_markup=reply_markup)
+    elif update.message:
+        await update.message.reply_text(text, reply_markup=reply_markup)
 
 
 async def choose_genres(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -332,3 +333,4 @@ application.add_handler(CallbackQueryHandler(start, pattern="^start$"))
 
 if __name__ == "__main__":
     application.run_polling()
+
