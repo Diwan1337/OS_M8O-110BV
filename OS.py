@@ -199,12 +199,13 @@ async def show_movie(update: Update, context: ContextTypes.DEFAULT_TYPE, movies,
     if movie_details:
         rating = movie_details.get('ratingKinopoisk', 'Не указан')
         duration = movie_details.get('filmLength', 'Не указано')
-        description = movie_details.get('description', 'Описание отсутствует')
+        description = movie_details.get('description', 'Описание отсутствует') or 'Описание отсутствует'
     else:
         rating = movie.get('rating', 'Не указан')
         duration = movie.get('filmLength', 'Не указано')
         description = 'Описание отсутствует'
 
+    # Ограничение длины строки
     if len(description) > 800:
         description = description[:800] + "..."
 
