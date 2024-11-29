@@ -15,19 +15,19 @@ from telegram.ext import (
 from telegram.error import BadRequest
 
 # Ваши API ключи
-TELEGRAM_API_KEY = ""
-KINOPOISK_API_KEY = ""
+TELEGRAM_API_KEY = "7670966753:AAGqLWoNUMeGaWMKqENl5vifCBGfUA09vTY"
+KINOPOISK_API_KEY = "e46a2cf3-0ade-4a97-973c-728bf3f158ae"
 
 # Словарь жанров
 GENRES = {
-    "Комедия": 13,
-    "Ужасы": 17,
-    "Мультфильм": 18,
-    "Фантастика": 6,
-    "Драма": 2,
-    "Боевик": 3,
-    "Приключения": 5,
-    "Семейный": 19,
+    "😂Комедия": 13,
+    "👻Ужасы": 17,
+    "🐭Мультфильм": 18,
+    "🚀Фантастика": 6,
+    "😢Драма": 2,
+    "💥Боевик": 3,
+    "🗺️Приключения": 5,
+    "👨‍👩‍👧‍👦Семейный": 19,
 }
 
 # Хранилище жанров пользователей
