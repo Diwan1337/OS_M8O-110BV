@@ -114,7 +114,7 @@ def call_kinopoisk_api(genre_ids, page=1):
         "genres": ','.join(map(str, genre_ids)) if genre_ids else '',
         "order": "RATING",
         "type": "ALL",
-        "ratingFrom": 7,
+        "ratingFrom": 5,
         "ratingTo": 10,
         "page": page
     }
@@ -334,4 +334,3 @@ application.add_handler(CallbackQueryHandler(start, pattern="^start$"))
 
 if __name__ == "__main__":
     application.run_polling()
-
